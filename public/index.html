@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>观好物 · 观景里社区精选电子价目表</title>
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="观景里社区特供商品展示与电子价目表，为您提供新鲜、优质的社区精选好物与贴心配送服务。">
+  <meta name="keywords" content="观好物, 观景里, 社区电子价目表, 社区团购, 社区好物">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts Outfit & Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    }
+    .brand-font {
+      font-family: 'Outfit', 'Noto Sans SC', sans-serif;
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: '#dc2626', // red-600 (朱红/车厘子红)
+              hover: '#b91c1c',   // red-700
+              light: '#fef2f2',   // red-50
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col antialiased">
+
+  <!-- A 视图：置顶 Header -->
+  <header class="sticky top-0 z-40 bg-brand text-white shadow-sm transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center space-x-2">
+        <span class="text-xl font-bold tracking-wider brand-font">观好物 · 观景里社区精选</span>
+      </div>
+      <a href="/admin.html" id="btn-admin-entry" class="text-xs bg-white/10 hover:bg-white/20 text-white font-medium py-1.5 px-3 rounded-md transition-colors duration-200 flex items-center gap-1">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+        </svg>
+        <span>商家后台</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- 主体内容 -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 py-8">
+    <!-- 标语 -->
+    <div class="mb-8 text-center sm:text-left">
+      <h1 class="text-3xl font-extrabold text-gray-900 tracking-tight">好物精选 · 邻里特供</h1>
+      <p class="mt-2 text-sm text-gray-500">源头直采，每日新鲜配送至观景里社区，扫码微信即享配送服务。</p>
+    </div>
+
+    <!-- 商品货架 -->
+    <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <!-- Loading Placeholder State -->
+      <div class="col-span-full py-20 text-center text-gray-500">
+        <svg class="animate-spin h-8 w-8 text-brand mx-auto mb-4" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        <span class="text-sm">好物正在赶来，请稍后...</span>
+      </div>
+    </div>
+  </main>
+
+  <!-- 💬 C 视图：底部固定客服区 -->
+  <footer class="bg-white border-t border-gray-100 py-10 mt-12">
+    <div class="max-w-4xl mx-auto px-4 flex flex-col items-center text-center">
+      <h2 class="text-lg font-bold text-gray-900 mb-2">如何购买与配送？</h2>
+      <p class="text-sm text-gray-600 max-w-lg mb-6">
+        欢迎选购！请扫码下方微信二维码添加客服，发送复制的订单信息即可完成购买与配送。
+      </p>
+      
+      <!-- 二维码占位 -->
+      <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 inline-block shadow-sm">
+        <img id="qr-code-img" src="./shoukuanma.png" alt="微信客服二维码" class="w-40 h-40 object-cover rounded-md" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'160\' height=\'160\' viewBox=\'0 0 160 160\'><rect width=\'160\' height=\'160\' fill=\'%23f3f4f6\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%239ca3af\' font-family=\'sans-serif\' font-size=\'12\'>客服二维码</text></svg>'">
+        <div class="mt-2 text-xs font-semibold text-brand tracking-wider">观景里专属微信客服</div>
+      </div>
+      
+      <p class="text-xs text-gray-400 mt-8">© 2026 观景里社区精选 · 观好物电子价目表</p>
+    </div>
+  </footer>
+
+  <!-- 🔍 B 视图：详情弹窗/模态框 (Modal) -->
+  <div id="product-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300">
+    <!-- Modal Container -->
+    <div class="bg-white rounded-lg w-full max-w-3xl overflow-hidden shadow-2xl relative flex flex-col md:flex-row max-h-[90vh] scale-95 transform transition-all duration-300">
+      
+      <!-- Close Button -->
+      <button id="modal-close" class="absolute right-4 top-4 z-10 bg-black/10 hover:bg-black/25 text-white md:text-gray-500 md:bg-gray-100 md:hover:bg-gray-200 p-1.5 rounded-full transition-colors duration-200" aria-label="关闭弹窗">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+
+      <!-- Left Column: Gallery Slider -->
+      <div class="w-full md:w-1/2 bg-gray-100 flex flex-col relative group">
+        <!-- Big image display container -->
+        <div class="relative w-full aspect-square bg-gray-200 overflow-hidden flex items-center justify-center">
+          <img id="modal-big-image" src="" alt="" class="w-full h-full object-cover transition-opacity duration-300">
+          
+          <!-- Prev Arrow -->
+          <button id="gallery-prev" class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-colors duration-200 opacity-0 group-hover:opacity-100 focus:opacity-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
+            </svg>
+          </button>
+          
+          <!-- Next Arrow -->
+          <button id="gallery-next" class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-colors duration-200 opacity-0 group-hover:opacity-100 focus:opacity-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+        
+        <!-- Thumbnail strip -->
+        <div class="p-3 bg-white border-t border-gray-100">
+          <div id="modal-thumbnails" class="flex gap-2 overflow-x-auto pb-1 scrollbar-thin">
+            <!-- Dynamic thumbnails -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Product Infos -->
+      <div class="w-full md:w-1/2 p-6 flex flex-col justify-between overflow-y-auto max-h-[50vh] md:max-h-full">
+        <div>
+          <span class="inline-block bg-brand/10 text-brand text-xs font-semibold px-2.5 py-1 rounded-md mb-3 tracking-wider">
+            观景里精选
+          </span>
+          <h2 id="modal-product-name" class="text-2xl font-bold text-gray-900 leading-snug">
+            <!-- Product Name -->
+          </h2>
+          <div class="mt-3 flex items-baseline">
+            <span class="text-sm font-semibold text-brand mr-0.5">¥</span>
+            <span id="modal-product-price" class="text-3xl font-extrabold text-brand tracking-tight">
+              <!-- Price -->
+            </span>
+            <span class="text-xs text-gray-400 ml-2">/ 配送到户</span>
+          </div>
+          
+          <div class="border-t border-gray-100 my-4"></div>
+          
+          <div class="space-y-2">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400">商品详情</h4>
+            <p id="modal-product-desc" class="text-sm text-gray-600 leading-relaxed whitespace-pre-wrap">
+              <!-- Long Desc -->
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-8 space-y-4">
+          <!-- Copy & Purchase Button -->
+          <button id="btn-copy-purchase" class="w-full bg-brand hover:bg-brand-hover text-white font-bold py-3.5 px-4 rounded-md text-center transition-all duration-200 active:scale-[0.98] shadow-sm flex items-center justify-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m-5 4h5m-5 4h5m-2 4h2"></path>
+            </svg>
+            <span>一键复制订单并联系购买</span>
+          </button>
+          
+          <p class="text-center text-xs text-gray-400 flex items-center justify-center gap-1">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <span>复制订单后可直接滑动到底部，添加微信发送</span>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 轻量扁平提示框 (Toast) -->
+  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-gray-900/95 text-white px-6 py-3.5 rounded-md shadow-lg text-sm text-center flex items-center space-x-2.5 max-w-sm w-[90%] opacity-0 pointer-events-none transform translate-y-3 transition-all duration-300">
+    <!-- Success Badge inside Toast -->
+    <div class="bg-brand rounded-full p-1 text-white">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+      </svg>
+    </div>
+    <span id="toast-message" class="font-medium text-gray-150">订单已复制！请扫码添加客服发送。</span>
+  </div>
+
+  <script>
+    // State management
+    let products = [];
+    let currentProduct = null;
+    let currentGalleryIndex = 0;
+
+    // DOM Elements
+    const productGrid = document.getElementById('product-grid');
+    const productModal = document.getElementById('product-modal');
+    const modalClose = document.getElementById('modal-close');
+    const modalBigImage = document.getElementById('modal-big-image');
+    const modalThumbnails = document.getElementById('modal-thumbnails');
+    const modalProductName = document.getElementById('modal-product-name');
+    const modalProductPrice = document.getElementById('modal-product-price');
+    const modalProductDesc = document.getElementById('modal-product-desc');
+    const btnCopyPurchase = document.getElementById('btn-copy-purchase');
+    const galleryPrev = document.getElementById('gallery-prev');
+    const galleryNext = document.getElementById('gallery-next');
+    const toast = document.getElementById('toast');
+    const toastMessage = document.getElementById('toast-message');
+
+    // Init & Load Data
+    async function loadProducts() {
+      try {
+        const response = await fetch('/api/products');
+        if (!response.ok) throw new Error('Failed to fetch products');
+        products = await response.ok ? await response.json() : [];
+        renderProducts();
+      } catch (error) {
+        console.error('加载商品失败:', error);
+        productGrid.innerHTML = `
+          <div class="col-span-full py-16 text-center text-red-500">
+            <svg class="w-12 h-12 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+            </svg>
+            <p class="font-semibold">加载电子价目表失败</p>
+            <p class="text-xs text-gray-400 mt-1">请确认后端服务已开启或重新刷新页面。</p>
+          </div>
+        `;
+      }
+    }
+
+    // Render Shelf
+    function renderProducts() {
+      if (products.length === 0) {
+        productGrid.innerHTML = `
+          <div class="col-span-full py-20 text-center text-gray-400">
+            <p class="font-medium text-base">当前货架空空如也</p>
+            <p class="text-xs mt-1">社区供应商暂未发布任何好物，请联系管理员添加。</p>
+          </div>
+        `;
+        return;
+      }
+
+      productGrid.innerHTML = products.map(product => {
+        // Safe image fallback
+        const mainImage = product.main_image || '/uploads/placeholder.png';
+        return `
+          <div class="bg-white rounded-md overflow-hidden hover:-translate-y-1 hover:shadow-md transition-all duration-300 flex flex-col h-full border border-gray-100">
+            <div class="aspect-[4/3] bg-gray-50 overflow-hidden relative">
+              <img src="${mainImage}" alt="${escapeHtml(product.name)}" class="w-full h-full object-cover" loading="lazy" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'><rect width=\'400\' height=\'300\' fill=\'%23f3f4f6\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%239ca3af\' font-family=\'sans-serif\'>无商品图</text></svg>'">
+            </div>
+            <div class="p-5 flex flex-col justify-between flex-grow">
+              <div>
+                <h3 class="font-bold text-gray-900 text-lg line-clamp-1 hover:text-brand transition-colors cursor-pointer" onclick="openProductModal('${product.id}')">
+                  ${escapeHtml(product.name)}
+                </h3>
+                <p class="text-gray-500 text-xs mt-1.5 line-clamp-2 leading-relaxed min-h-[2.5rem]">
+                  ${escapeHtml(product.short_desc)}
+                </p>
+              </div>
+              <div class="mt-5 flex items-center justify-between">
+                <div class="flex items-baseline">
+                  <span class="text-xs font-bold text-brand mr-0.5">¥</span>
+                  <span class="text-xl font-extrabold text-brand tracking-tight">${product.price}</span>
+                </div>
+                <button onclick="openProductModal('${product.id}')" class="bg-brand hover:bg-brand-hover text-white text-xs font-semibold py-2 px-4 rounded-md transition-colors duration-200">
+                  查看详情
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Modal Operations
+    function openProductModal(id) {
+      currentProduct = products.find(p => p.id === id);
+      if (!currentProduct) return;
+
+      currentGalleryIndex = 0;
+      
+      // Load UI details
+      modalProductName.textContent = currentProduct.name;
+      modalProductPrice.textContent = currentProduct.price;
+      modalProductDesc.textContent = currentProduct.long_desc || currentProduct.short_desc || '暂无详细描述';
+      
+      updateGallery();
+
+      // Show modal
+      productModal.classList.remove('pointer-events-none', 'opacity-0');
+      productModal.firstElementChild.classList.remove('scale-95');
+      productModal.firstElementChild.classList.add('scale-100');
+      document.body.style.overflow = 'hidden'; // Lock background scroll
+    }
+
+    function closeProductModal() {
+      productModal.classList.add('pointer-events-none', 'opacity-0');
+      productModal.firstElementChild.classList.remove('scale-100');
+      productModal.firstElementChild.classList.add('scale-95');
+      document.body.style.overflow = ''; // Unlock scroll
+    }
+
+    // Modal Gallery Controller
+    function updateGallery() {
+      const gallery = currentProduct.gallery_images && currentProduct.gallery_images.length > 0
+        ? currentProduct.gallery_images
+        : [currentProduct.main_image || '/uploads/placeholder.png'];
+
+      if (currentGalleryIndex < 0) currentGalleryIndex = gallery.length - 1;
+      if (currentGalleryIndex >= gallery.length) currentGalleryIndex = 0;
+
+      const activeImage = gallery[currentGalleryIndex];
+      modalBigImage.style.opacity = 0;
+      
+      setTimeout(() => {
+        modalBigImage.src = activeImage;
+        modalBigImage.onerror = () => {
+          modalBigImage.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><rect width="400" height="400" fill="%23f3f4f6"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%239ca3af">加载失败</text></svg>';
+        };
+        modalBigImage.style.opacity = 1;
+      }, 150);
+
+      // Render Thumbnails
+      modalThumbnails.innerHTML = gallery.map((img, idx) => {
+        const isActive = idx === currentGalleryIndex;
+        return `
+          <button onclick="setGalleryIndex(${idx})" class="w-12 h-12 flex-shrink-0 rounded-md overflow-hidden border-2 transition-all duration-200 ${isActive ? 'border-brand scale-95' : 'border-transparent hover:border-gray-300'} bg-gray-50">
+            <img src="${img}" class="w-full h-full object-cover" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'48\' height=\'48\' viewBox=\'0 0 48 48\'><rect width=\'48\' height=\'48\' fill=\'%23f3f4f6\'/></svg>'">
+          </button>
+        `;
+      }).join('');
+    }
+
+    function setGalleryIndex(index) {
+      currentGalleryIndex = index;
+      updateGallery();
+    }
+
+    function prevGalleryImage() {
+      currentGalleryIndex--;
+      updateGallery();
+    }
+
+    function nextGalleryImage() {
+      currentGalleryIndex++;
+      updateGallery();
+    }
+
+    // Copy Order Information with Fallback for iOS/Stateless browsers
+    function copyOrderInfo() {
+      if (!currentProduct) return;
+
+      const orderText = `【观好物订单】商品：${currentProduct.name} | 价格：${currentProduct.price}元 | 购买人：[请填写姓名/电话/地址]`;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(orderText)
+          .then(() => showToast())
+          .catch(err => {
+            console.error('Clipboard API write failed, trying fallback...', err);
+            fallbackCopyText(orderText);
+          });
+      } else {
+        fallbackCopyText(orderText);
+      }
+    }
+
+    function fallbackCopyText(text) {
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      // Prevent scrolling
+      textArea.style.top = "0";
+      textArea.style.left = "0";
+      textArea.style.position = "fixed";
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+
+      try {
+        const successful = document.execCommand('copy');
+        if (successful) {
+          showToast();
+        } else {
+          alert('复制失败，请手动在下方框选并复制订单文本。');
+        }
+      } catch (err) {
+        console.error('Fallback copy method failed', err);
+        // Direct prompts as ultimate fallback
+        window.prompt("您的浏览器不支持一键复制，请复制以下订单文本：", text);
+      }
+
+      document.body.removeChild(textArea);
+    }
+
+    // Toast Alert
+    let toastTimeout;
+    function showToast() {
+      toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-3');
+      toast.classList.add('opacity-100', 'translate-y-0');
+      
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-3');
+        toast.classList.remove('opacity-100', 'translate-y-0');
+      }, 3500);
+    }
+
+    // String Sanitization
+    function escapeHtml(str) {
+      if (!str) return '';
+      return str
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    // Event Listeners
+    modalClose.addEventListener('click', closeProductModal);
+    productModal.addEventListener('click', (e) => {
+      if (e.target === productModal) closeProductModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeProductModal();
+    });
+
+    galleryPrev.addEventListener('click', prevGalleryImage);
+    galleryNext.addEventListener('click', nextGalleryImage);
+    btnCopyPurchase.addEventListener('click', copyOrderInfo);
+
+    // Initial Load
+    window.addEventListener('DOMContentLoaded', loadProducts);
+  </script>
+</body>
+</html>

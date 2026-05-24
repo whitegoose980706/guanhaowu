@@ -1,0 +1,40 @@
+[
+  {
+    "id": "prod_1",
+    "name": "观景里特供 · 高山野生椴树蜜",
+    "price": 88,
+    "short_desc": "大山深处的纯净馈赠，自然结晶，入口即化。",
+    "long_desc": "采集自海拔1500米以上的深山椴树林，纯手工过滤，无任何添加剂。富含多种活性酶与氨基酸，色泽晶莹，口感细腻温润，是家庭日常调理与馈赠亲友的佳品。规格：500g/罐。日常早晚一杯，润肺养胃，温和滋补。",
+    "main_image": "/uploads/honey_main.png",
+    "gallery_images": [
+      "/uploads/honey_main.png",
+      "/uploads/honey_detail1.png",
+      "/uploads/honey_detail2.png"
+    ]
+  },
+  {
+    "id": "prod_2",
+    "name": "观景里特供 · 手作古法黑糖",
+    "price": 58,
+    "short_desc": "传统柴火慢熬，保留甘蔗本真原香与微量元素。",
+    "long_desc": "传承百年非遗手艺，精选优质本地甘蔗，历经榨汁、沉淀、大锅慢熬等18道工序，手工切块而成。色泽红褐，沙感十足，冲泡后甜而不腻，带有独特的焦糖香气，是女性经期调理与日常养生的温暖伴侣。规格：450g/盒。",
+    "main_image": "/uploads/brown_sugar_main.png",
+    "gallery_images": [
+      "/uploads/brown_sugar_main.png",
+      "/uploads/brown_sugar_detail1.png"
+    ]
+  },
+  {
+    "id": "prod_3",
+    "name": "观景里精选 · 高山云雾绿茶",
+    "price": 128,
+    "short_desc": "清明前人工采摘初展一芽一叶，鲜爽回甘。",
+    "long_desc": "产自海拔1200米的高山生态茶园，常年云雾缭绕，昼夜温差大。清明前由经验丰富的老茶农手工采摘初展的一芽一叶。茶干条索紧细，色泽翠绿；冲泡后汤色清澈明亮，香气高雅持久，滋味鲜爽回甘，叶底嫩绿匀整。规格：100g/罐。",
+    "main_image": "/uploads/green_tea_main.png",
+    "gallery_images": [
+      "/uploads/green_tea_main.png",
+      "/uploads/green_tea_detail1.png",
+      "/uploads/green_tea_detail2.png"
+    ]
+  }
+]
