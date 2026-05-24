@@ -6,22 +6,34 @@
       "use": "@vercel/node"
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api/(.*)",
-      "dest": "server.js"
+      "source": "/api/(.*)",
+      "destination": "/server.js"
     },
     {
-      "src": "/shoukuanma.png",
-      "dest": "/public/shoukuanma.png"
+      "source": "/shoukuanma.png",
+      "destination": "/public/shoukuanma.png"
     },
     {
-      "src": "/uploads/(.*)",
-      "dest": "/public/uploads/$1"
+      "source": "/uploads/(.*)",
+      "destination": "/public/uploads/$1"
     },
     {
-      "src": "/(.*)",
-      "dest": "/public/$1"
+      "source": "/",
+      "destination": "/public/index.html"
+    },
+    {
+      "source": "/admin.html",
+      "destination": "/public/admin.html"
+    },
+    {
+      "source": "/index.html",
+      "destination": "/public/index.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/public/$1"
     }
   ]
 }
